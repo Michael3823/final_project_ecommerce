@@ -1,0 +1,20 @@
+user(1 to 1 with cart)(1 to 1 with order )
+username:string, name:string, password:string email
+
+cart(1 to 1 with user)(1 to many cart_item)
+user_id:references, total:decimal
+
+order(1 to many with order_item)(1 to 1 with user)
+user_id:references, address:string, price:decimal
+
+category(1 to many with product)
+name:string
+
+product(many to 1 with category)(1 to 1 with cart_item)(1 to 1 with order_item)
+category_id:references, name:string, description:text, image:string, quantity_available:int
+
+cart_item(1 to 1 with product) (many to 1 with cart)
+cart_id:reference, product_id, quantity:int
+
+order_item(1 to 1 with product)(many to 1 with order)
+order_id:references, product_id:references, price:int, quantity:int

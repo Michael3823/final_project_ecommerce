@@ -1,20 +1,21 @@
-user(1 to 1 with cart)(1 to 1 with order )
-username:string, name:string, password:string email
 
-cart(1 to 1 with user)(1 to many cart_item)
-user_id:references, total:decimal
+Province(1 to many with Customer)
+name:string, HST:float GST:float PST:float
 
-order(1 to many with order_item)(1 to 1 with user)
-user_id:references, address:string, price:decimal
+Customer(many to one with provinces) (1 to many with orders)
+Province:references,  username:string, password:string, email:string, name:string,
 
-category(1 to many with product)
+item(many to many with categories) (many to one with item_orders)
+category_id:references, name:string, description:text, price:float, image:string, quantity_available:int
+
+orders(many to 1 with customers) (1 to 1 with item_orders)
+total_paid:float, customer_id:references taxes:float
+
+item_orders(joinertable)(cart)(1 to many with item)
+price:float, quantity:int
+
+Item_categories(joiner table)
+categories_id:references, item_id:references
+
+categories(many to many with item)
 name:string
-
-product(many to 1 with category)(1 to 1 with cart_item)(1 to 1 with order_item)
-category_id:references, name:string, description:text, image:string, quantity_available:int
-
-cart_item(1 to 1 with product) (many to 1 with cart)
-cart_id:reference, product_id, quantity:int
-
-order_item(1 to 1 with product)(many to 1 with order)
-order_id:references, product_id:references, price:int, quantity:int

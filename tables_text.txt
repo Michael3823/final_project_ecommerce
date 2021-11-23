@@ -3,10 +3,10 @@ Province(1 to many with Customer)
 name:string, HST:float GST:float PST:float
 
 Customer(many to one with provinces) (1 to many with orders)
-Province:references,  username:string, password:string, email:string, name:string,
+Province:references, password:string, email:string, name:string,
 
 item(many to many with categories) (many to one with item_orders)
-category_id:references, name:string, description:text, price:float, image:string, quantity_available:int
+category_id:references, name:string, price:float, image:string, quantity_available:int
 
 orders(many to 1 with customers) (1 to 1 with item_orders)
 total_paid:float, customer_id:references taxes:float

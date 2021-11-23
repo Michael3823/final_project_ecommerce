@@ -1,0 +1,2 @@
+module BoxingShoesHelper
+end

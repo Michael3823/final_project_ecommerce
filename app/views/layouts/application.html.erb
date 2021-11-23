@@ -15,8 +15,8 @@
   <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item" href="#">
-            <img src="https://cdn.emk.dev/templates/bulma-logo-light.png" alt="Logo">
+          <a class="navbar-item" href="../">
+            <%= image_tag('GloveIcon.png', draggable: "false", id: "drag2", alt: "Edit Entry") %>
           </a>
           <span class="navbar-burger burger" data-target="navbarMenu">
             <span></span>
@@ -26,24 +26,14 @@
         </div>
         <div id="navbarMenu" class="navbar-menu">
           <div class="navbar-end">
-            <a class="navbar-item is-active">
-              Home
-            </a>
-            <a class="navbar-item">
-              Examples
-            </a>
-            <a class="navbar-item">
-              Features
-            </a>
-            <a class="navbar-item">
-              Team
-            </a>
-            <a class="navbar-item">
-              Archives
-            </a>
-            <a class="navbar-item">
-              Help
-            </a>
+            <%= link_to 'Home', home_page_index_path, class: "navbar-item is-active is-size-5 has-text-weight-semibold" %>
+            <%= link_to 'Shop', shop_index_path, class: "navbar-item is-active is-size-5 has-text-weight-semibold" %>
+            <%= link_to 'Boxing Gloves', boxing_gloves_index_path, class: "navbar-item is-active is-size-5 has-text-weight-semibold" %>
+            <%= link_to 'Boxing Gear', boxing_gears_index_path, class: "navbar-item is-active is-size-5 has-text-weight-semibold" %>
+            <%= link_to 'Boxing Shoes', boxing_shoes_index_path, class: "navbar-item is-active is-size-5 has-text-weight-semibold" %>
+
+            <%= link_to 'Punching Bags', punching_bags_index_path, class: "navbar-item is-active is-size-5 has-text-weight-semibold" %>
+            <%= link_to 'AboutUs', about_us_index_path, class: "navbar-item is-active is-size-5 has-text-weight-semibold" %>
           </div>
         </div>
       </div>

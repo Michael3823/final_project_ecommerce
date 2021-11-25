@@ -19,6 +19,8 @@ Category.delete_all
                description: "This #{Faker::Dessert.variety} has the flavor of #{Faker::Dessert.flavor} alcohol.",
                quantity_available: 60
           )
+          downloaded_image = URI.open("https://source.unsplash.com/600x600/?#{c.name}")
+          c.products.image.attach(io: downloaded_image, filename: "m-#{c.name}.jpg")
 
      end
 

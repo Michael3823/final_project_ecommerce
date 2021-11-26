@@ -1,0 +1,44 @@
+
+    
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="columns is-vcentered">
+                    <div class="column is-5">
+                        <figure>
+                            <%= image_tag(@product.image, draggable: "false", id: "drag5", alt: "picture") %>
+                        </figure>
+                    </div>
+                    <div class="column is-6 is-offset-1">
+                        
+                        <section class="section">
+                         <div class="columns">
+                            <div class="column is-8 is-offset-2">
+                            <div class="content is-medium">
+                               
+                                <h1 class="title"><%= @product.name%></h1>
+                                <h5>price <%= @product.price%></h5>                                
+                                <p><%= @product.description%></p>
+
+                                <p>quantity available: <%= @product.quantity_available%></p>
+                            </div>
+                            </div>
+                        </div>
+                        </section>
+
+                        
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-foot">
+            <div class="container">
+                <div class="tabs is-centered">
+                    <ul>
+                        <li><a>End of Page</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>

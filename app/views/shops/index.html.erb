@@ -8,12 +8,13 @@
                         
                     </div>
                     <div class="column is-6 is-offset-1">
-                        <h2> All Champions</h2>
+                        <h2> All products</h2>
 
                         <ul class="block-list is-small is-outlined is-success is-centered">
                             <% @products.each do |product|%>
                             <li class="block-list is-small is-outlined is-success is-centered">
-                            <%= link_to product.name, product, class: "block-list is-small is-outlined is-success is-centered"%>
+                            <%= link_to product.name, product%>
+                            
                             </li>
                             <%end%>
                         </ul>
@@ -28,9 +29,7 @@
         <div class="hero-foot">
             <div class="container">
                 <div class="tabs is-centered">
-                    <ul>
-                        <li><a>End of Page</a></li>
-                    </ul>
+                    
                 </div>
             </div>
         </div>

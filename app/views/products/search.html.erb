@@ -4,19 +4,23 @@
                 <div class="columns is-vcentered">
                     <div class="column is-5">
                         
-                        
+                        <figure >
+                            
+                        </figure>
                         
                     </div>
                     <div class="column is-6 is-offset-1">
-                        <h2> All products</h2>
+                        <% if @products.count == 0 %>
+                        <h2>There are no products that have: <%= params[:keywords] %></h2>
+                       
+                        <% else %>
+                        <h2> Found <%= pluralize(@products.count, 'Product') %> When searching for: <%= params[:keywords] %></h2>
+                        <% end %>
 
                         <ul class="block-list is-small is-outlined is-success is-centered">
-                            <% @products.each do |product|%>
-                            <li class="block-list is-small is-outlined is-success is-centered">
-                            <%= link_to product.name, product%>
-                            
-                            </li>
-                            <%end%>
+                            <% @products.each do |product| %>
+                                <li><%= link_to product.name, product%> </li>
+                            <% end %>
                         </ul>
                         <%= will_paginate @products %>
 
@@ -29,7 +33,9 @@
         <div class="hero-foot">
             <div class="container">
                 <div class="tabs is-centered">
-                    
+                    <ul>
+                        <li><a>End of Page</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

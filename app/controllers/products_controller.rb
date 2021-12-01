@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all.paginate(page: params[:page], per_page: 10)
+    @products = Product.all.paginate(page: params[:page], per_page: 9)
   end
 
   def show
@@ -9,6 +9,6 @@ class ProductsController < ApplicationController
   end
   def search
     wildcard_search = "%#{params[:keywords]}%"
-    @products = Product.where("name LIKE ?", wildcard_search).paginate(page: params[:page], per_page: 10)
+    @products = Product.where("name LIKE ?", wildcard_search).paginate(page: params[:page], per_page: 9)
   end
 end

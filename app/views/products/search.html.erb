@@ -1,42 +1,65 @@
-<section class="hero is-fullheight is-default is-bold">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="columns is-vcentered">
-                    <div class="column is-5">
-                        
-                        <figure >
-                            
-                        </figure>
-                        
-                    </div>
-                    <div class="column is-6 is-offset-1">
-                        <% if @products.count == 0 %>
-                        <h2>There are no products that have: <%= params[:keywords] %></h2>
+
+<div class="container">
+      <div class="section">
+        <div class="columns">
+          <div class="column has-text-centered">
+            <% if @products.count == 0 %>
+                <h2>There are no products that have: <%= params[:keywords] %></h2>
                        
-                        <% else %>
-                        <h2> Found <%= pluralize(@products.count, 'Product') %> When searching for: <%= params[:keywords] %></h2>
-                        <% end %>
-
-                        <ul class="block-list is-small is-outlined is-success is-centered">
-                            <% @products.each do |product| %>
-                                <li><%= link_to product.name, product%> </li>
-                            <% end %>
-                        </ul>
-                        <%= will_paginate @products %>
-
-                        
-                    </div>
-                </div>
-            </div>
+            <% else %>
+                <h2> Found <%= pluralize(@products.count, 'Product') %> When searching for: <%= params[:keywords] %></h2>
+            <% end %><br>
+          </div>
         </div>
-
-        <div class="hero-foot">
-            <div class="container">
-                <div class="tabs is-centered">
-                    <ul>
-                        <li><a>End of Page</a></li>
-                    </ul>
+        
+        <div id="app" class="row columns is-multiline">
+        
+        <% @products.each do |product|%>
+        
+          <div v-for="card in cardData" key="card.id" class="column is-4">
+            <div class="card large">
+              <div class="card-image">
+                <figure class="image is-16by9">
+                  <%= image_tag(product.image, draggable: "false", id: "drag2", alt: "Edit Entry") %>
+                </figure>
+              </div>
+                
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <%= image_tag('GloveIcon.png', draggable: "false", id: "drag2", alt: "Edit Entry") %>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4 no-padding"><%= link_to product.name, product%></p>
+                    <p>
+                      <span class="title is-6">
+                        <a > <%= product.price %></p> </a> </span> </p>
+                   
+                  </div>
                 </div>
+                <div class="content">
+                  <%= product.description %></p>
+                  <div class="background-icon"><span class="icon-twitter"></span></div>
+                </div>
+              </div>
+              
             </div>
+          </div>
+          
+         
+          
+            <%end%>
+            <%= will_paginate @products %>
+            
         </div>
-    </section>
+        
+      </div>
+    </div>
+
+
+
+
+
+

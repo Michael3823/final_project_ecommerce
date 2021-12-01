@@ -1,2 +1,54 @@
-<h1>BoxingGears#index</h1>
-<p>Find me in app/views/boxing_gears/index.html.erb</p>
+
+<div class="container">
+      <div class="section">
+        <div class="columns">
+          <div class="column has-text-centered">
+            <h1 class="title" >Boxing Gears</h1><br>
+          </div>
+        </div>
+        
+        <div id="app" class="row columns is-multiline">
+        <% @categories.each do |category|%>
+        <% category.products.each do |product| %>
+          <div v-for="card in cardData" key="card.id" class="column is-4">
+            <div class="card large">
+              <div class="card-image">
+                <figure class="image is-16by9">
+                  <%= image_tag(product.image, draggable: "false", id: "drag2", alt: "Edit Entry") %>
+                </figure>
+              </div>
+                
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <%= image_tag('GloveIcon.png', draggable: "false", id: "drag2", alt: "Edit Entry") %>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4 no-padding"><%= link_to product.name, product%></p>
+                    <p>
+                      <span class="title is-6">
+                        <a > <%= product.price %></p> </a> </span> </p>
+                   
+                  </div>
+                </div>
+                <div class="content">
+                  <%= product.description %></p>
+                  <div class="background-icon"><span class="icon-twitter"></span></div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <% end %>
+          
+            <%end%>
+            
+        </div>
+        
+      </div>
+    </div>
+    
+    

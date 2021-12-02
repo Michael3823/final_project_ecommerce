@@ -113,4 +113,10 @@ end
 
      puts "Creating #{c.name}"
 end
-puts "Created #{Product.count} products!"AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
+
+if Rails.env.development?
+     AdminUser.create!(email: "admin@example.com", password: "password",
+               password_confirmation: "password")
+end
+
+#puts "Created #{Product.count} products!"AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

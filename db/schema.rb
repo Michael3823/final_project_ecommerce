@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_01_171319) do
+ActiveRecord::Schema.define(version: 2021_12_02_044417) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -91,6 +91,26 @@ ActiveRecord::Schema.define(version: 2021_12_01_171319) do
     t.index ["product_id"], name: "index_item_categories_on_product_id"
   end
 
+  create_table "order_products", force: :cascade do |t|
+    t.integer "quantity"
+    t.decimal "price"
+    t.integer "order_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_products_on_order_id"
+    t.index ["product_id"], name: "index_order_products_on_product_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.decimal "total"
+    t.decimal "tax"
+    t.integer "category_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["category_id"], name: "index_orders_on_category_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "price"
@@ -116,5 +136,8 @@ ActiveRecord::Schema.define(version: 2021_12_01_171319) do
   add_foreign_key "customers", "provinces"
   add_foreign_key "item_categories", "categories"
   add_foreign_key "item_categories", "products"
+  add_foreign_key "order_products", "orders"
+  add_foreign_key "order_products", "products"
+  add_foreign_key "orders", "categories"
   add_foreign_key "products", "categories"
 end

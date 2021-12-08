@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'about_us/index'
   get 'home_page/index'
   root 'home_page#index'
+
+  
   
 
   resources :cart, only: %i[create destroy]

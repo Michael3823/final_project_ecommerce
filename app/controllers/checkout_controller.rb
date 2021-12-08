@@ -6,6 +6,7 @@ class CheckoutController < ApplicationController
       redirect_to root_path
       nil
     end
+    
 
     respond_to do |format|
       format.js 

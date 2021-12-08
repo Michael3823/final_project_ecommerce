@@ -14,11 +14,7 @@ Rails.application.routes.draw do
   get 'about_us/index'
   get 'home_page/index'
   root 'home_page#index'
-  scope "/checkout" do
-    post "create",  to: "checkout#create",  as: "checkout_create"
-    get  "success", to: "checkout#success", as: "checkout_success"
-    get  "cancel",  to: "checkout#cancel",  as: "checkout_cancel"
-  end
+  
 
   resources :cart, only: %i[create destroy]
   resources :products, only: %i[index show] do 
@@ -26,5 +22,11 @@ Rails.application.routes.draw do
       get "search"
     end
   end
+  scope "/checkout" do
+    post "create",  to: "checkout#create",  as: "checkout_create"
+    get  "success", to: "checkout#success", as: "checkout_success"
+    get  "cancel",  to: "checkout#cancel",  as: "checkout_cancel"
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

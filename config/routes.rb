@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   root 'home_page#index'
 
   
-  
+  resources :webhooks, only: [:create]
 
   resources :cart, only: %i[create destroy]
   resources :products, only: %i[index show] do 

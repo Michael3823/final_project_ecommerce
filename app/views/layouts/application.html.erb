@@ -66,6 +66,7 @@
           <li>
             Cart
             <% if cart.present? %>
+            <%# <%= @cart.collect { |item| item.to_builder.attributes! } %> 
               <sup><%= cart.size %></sup>
               <div class="dropdown is-active">
                 <div class="dropdown-trigger">
@@ -80,24 +81,33 @@
                   <div class="dropdown-content">
                     <div class="dropdown-item">
                       <ul>
+                        
                         <% cart.each do |product| %>
                           <li>
                             <%= product.name %> <%= button_to cart_path(product), method: :delete do %>
                                 Remove
                             <% end %>
+                            
                           </li>
                           <hr class="dropdown-divider">
+                          
+                          
                         <% end %>
+                        <li>
+                             <%= button_to "Buy Now", checkout_create_path, remote: true %>
+                            
+                          </li>
                     </div>
-                    
-                    
-                    
                   </div>
                 </div>
               </div>
+              
             <% end %>
+            
           </li>
+          
         </ul>
+        
       </nav>
     
     

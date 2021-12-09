@@ -29,7 +29,8 @@
                     <p class="title is-4 no-padding"><%= link_to product.name, product%></p>
                     <p>
                       <span class="title is-6">
-                        <a > <%= product.price %></p> </a> </span> </p>
+                        <a > <%= number_to_currency(product.price/100)  %></p> </a> </span> </p>
+                        <a > sales count: <%= product.sales_count %></p> </a>
                    
                   </div>
                 </div>

@@ -5,7 +5,7 @@ class CheckoutController < ApplicationController
       payment_method_types: ['card'],
       line_items: [{
         name: product.name,
-        amount: 9999,
+        amount: product.price,
         currency: "cad",
         quantity: 1
       }],

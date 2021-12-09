@@ -15,7 +15,7 @@ Category.delete_all
      number_of_products.times do
          product = c.products.create(
                name: Faker::Name.name,
-               price: Faker::Commerce.price,
+               price: rand(500..10000000),
                description: "This #{Faker::Dessert.variety} has the flavor of #{Faker::Dessert.flavor} alcohol.",
                quantity_available: 60
           )
@@ -43,7 +43,7 @@ end
      number_of_products.times do
           product = c.products.create(
                name: Faker::Esport.player,
-               price: Faker::Commerce.price,
+               price: rand(500..10000000),
                description: "This #{Faker::Dessert.variety} has the flavor of #{Faker::Dessert.flavor} alcohol.",
                quantity_available: 60
           )
@@ -69,7 +69,7 @@ end
      number_of_products.times do
           product = c.products.create(
                name: Faker::Food.vegetables,
-               price: Faker::Commerce.price,
+               price: rand(500..10000000),
                description: "This #{Faker::Dessert.variety} has the flavor of #{Faker::Dessert.flavor} alcohol.",
                quantity_available: 60
           )
@@ -95,7 +95,7 @@ end
      number_of_products.times do
           product = c.products.create(
                name: Faker::Superhero.name,
-               price: Faker::Commerce.price,
+               price: rand(500..10000000),
                description: "This #{Faker::Dessert.variety} has the flavor of #{Faker::Dessert.flavor} alcohol.",
                quantity_available: 60
           )
@@ -114,9 +114,9 @@ end
      puts "Creating #{c.name}"
 end
 
-if Rails.env.development?
-     AdminUser.create!(email: "admin@example.com", password: "password",
-               password_confirmation: "password")
-end
+# if Rails.env.development?
+#      AdminUser.create!(email: "admin@example.com", password: "password",
+#                password_confirmation: "password")
+# end
 
 #puts "Created #{Product.count} products!"AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?

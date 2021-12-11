@@ -1,0 +1,51 @@
+<div id="app" class="row columns is-multiline">
+        <% @categories.each do |category|%>
+        <% category.products.each do |product| %>
+          <div v-for="card in cardData" key="card.id" class="column is-4">
+            <div class="card large">
+              <div class="card-image">
+                <figure class="image is-16by9">
+                  <%= image_tag(product.image, draggable: "false", id: "drag2", alt: "Edit Entry") %>
+                </figure>
+              </div>
+                
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-left">
+                    <figure class="image is-48x48">
+                      <%= image_tag('GloveIcon.png', draggable: "false", id: "drag2", alt: "Edit Entry") %>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <p class="title is-4 no-padding"><%= link_to product.name, product%></p>
+                    <p>
+                      <span class="title is-6">
+                        <a > <%= number_to_currency(product.price/100)  %></p> </a> </span> </p>
+                   
+                  </div>
+                </div>
+                <div class="content">
+                  <%= product.description %></p>
+                  <div class="background-icon"><span class="icon-twitter"></span></div>
+                  <% if cart.include?(product) %>
+                    <%= button_to cart_path(product), method: :delete do %>
+                      Remove From Cart
+                    <% end %>
+                  <% else %>
+                    <%= form_with  url: cart_index_path, method: :post do %>
+                      <%= hidden_field_tag(:id, product.id) %>
+                      <%= button_tag 'Add to Cart' %>
+                    <% end %>
+                  <% end %>
+                  <%= button_to "Buy Now", checkout_create_path, params: {id: product.id}, remote: true %>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+          
+          <% end %>
+          
+            <%end%>
+            
+        </div>

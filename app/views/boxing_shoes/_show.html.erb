@@ -1,4 +1,4 @@
-<div id="app" class="row columns is-multiline">
+      <div id="app" class="row columns is-multiline">
         <% @categories.each do |category|%>
         <% category.products.each do |product| %>
           <div v-for="card in cardData" key="card.id" class="column is-4">
@@ -48,4 +48,4 @@
           
             <%end%>
             
-        </div>
+      </div>

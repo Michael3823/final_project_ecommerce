@@ -4,7 +4,7 @@
         <div class="columns">
           <div class="column has-text-centered">
             <% if @products.count == 0 %>
-                <h2>There are no products that have: <%= params[:keywords] %></h2>
+                <h2>There are no products that have: <%= params[:keywords] %> in <%= params[:option] %></h2>
                        
             <% else %>
                 <h2> Found <%= pluralize(@products.count, 'Product') %> When searching for: <%= params[:keywords] %></h2>

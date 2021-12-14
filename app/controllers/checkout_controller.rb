@@ -8,7 +8,9 @@ class CheckoutController < ApplicationController
   end
     
       def success
-        
+        #create an order and grab the id, also link to the loged in user id (also taxes here)
+        # loop through the session
+        # create orderProducts that link to the new order id and the product id
       end
     
       def cancel

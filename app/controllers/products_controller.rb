@@ -10,8 +10,8 @@ class ProductsController < ApplicationController
   end
   def search
     @categories = Category.all
-    wildcard_category = "%#{params[:cat]}%"
+    wildcard_category = params[:option]
     wildcard_search = "%#{params[:keywords]}%"
-    @products = Product.where("name LIKE ?", wildcard_search).paginate(page: params[:page], per_page: 9)
+    @products = Product.where("category_id = ? and name LIKE ?", wildcard_category,wildcard_search).paginate(page: params[:page], per_page: 9)
   end
 end

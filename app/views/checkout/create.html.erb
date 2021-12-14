@@ -10,8 +10,9 @@
               <% cart.each do |product| %>
                           <li>
                             <%= product.name %>
-                            <%=number_to_currency(product.price/100) %>
                             
+                            <%=number_to_currency(product.price/100) %>
+                                                        
                           </li>
                           <hr class="dropdown-divider">
                           
@@ -26,16 +27,19 @@
               <form>
                 <div class="field">
                   <div class="control">
-                    <input class="input is-medium" type="text" placeholder="Name">
+                    <%= form_with(url: search_products_path, method: :get, local: true ) do %>
+             
+                    <%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: 'Enter Name') %> 
+                    
                   </div>
                 </div>
 
                 <div class="field">
                   <div class="control">
-                    <input class="input is-medium" type="email" placeholder="Adress">
+                    <%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: 'Enter Address') %>
                   </div>
                 </div>
-                <%= button_tag 'Add to Cart' %>
+                <%= submit_tag("Search", class: "button is-block is-primary is-fullwidth is-medium") %><% end %>
                 
                 
               </form>

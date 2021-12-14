@@ -1,6 +1,6 @@
 class BoxingShoesController < ApplicationController
   def index
-    @categories = Category.where(name: 'Shoes').paginate(page: params[:page], per_page: 9)
+    @products = Product.where(category_id: 4).paginate(page: params[:page], per_page: 9)
 
   end
 end

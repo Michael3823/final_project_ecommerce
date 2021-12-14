@@ -1,6 +1,6 @@
  <div id="app" class="row columns is-multiline">
-        <% @categories.each do |category|%>
-        <% category.products.each do |product| %>
+        <% @products.each do |product|%>
+        
           <div v-for="card in cardData" key="card.id" class="column is-4">
             <div class="card large">
               <div class="card-image">
@@ -21,6 +21,7 @@
                     <p>
                       <span class="title is-6">
                         <a > <%= number_to_currency(product.price/100)  %></p> </a> </span> </p>
+                        <a > sales count: <%= product.sales_count %></p> </a>
                    
                   </div>
                 </div>
@@ -32,20 +33,23 @@
                       Remove From Cart
                     <% end %>
                   <% else %>
+                    
                     <%= form_with  url: cart_index_path, method: :post do %>
                       <%= hidden_field_tag(:id, product.id) %>
+                      <%= number_field :quantity, :value => 1, :min => 1 %>
                       <%= button_tag 'Add to Cart' %>
                     <% end %>
                   <% end %>
-                  <%= button_to "Buy Now", checkout_create_path, params: {id: product.id}, remote: true %>
+
                 </div>
               </div>
               
             </div>
           </div>
           
-          <% end %>
+         
           
             <%end%>
+            <%= will_paginate @products %>
             
         </div>

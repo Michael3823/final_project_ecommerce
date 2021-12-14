@@ -1,0 +1,72 @@
+<body>
+    <section class="container">
+      <div class="columns is-multiline">
+        <div class="column is-8 is-offset-2 register">
+          <div class="columns">
+            <div class="column left">
+              <h1 class="title is-1">Check Out</h1>
+              <h2 class="subtitle colored is-4">Your total is: <%= number_to_currency(@realTotal) %></h2>
+              <ul>
+              <% cart.each do |product| %>
+                          <li>
+                            <%= product.name %>
+                            <%=number_to_currency(product.price/100) %>
+                            
+                          </li>
+                          <hr class="dropdown-divider">
+                          
+                          
+                        <% end %>
+                        <li>Total: <%= number_to_currency(@realTotal) %></li>
+              </ul>
+            </div>
+            <div class="column right has-text-centered">
+              <h1 class="title is-4">Submit Your order</h1>
+              <p class="description">please add your Name and your address</p>
+              <form>
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-medium" type="text" placeholder="Name">
+                  </div>
+                </div>
+
+                <div class="field">
+                  <div class="control">
+                    <input class="input is-medium" type="email" placeholder="Adress">
+                  </div>
+                </div>
+                <%= button_tag 'Add to Cart' %>
+                
+                
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="column is-8 is-offset-2">
+          <br>
+          <nav class="level">
+            <div class="level-left">
+              <div class="level-item">
+                <span class="icon">
+                  <i class="fab fa-twitter"></i>
+                </span> &emsp;
+                <span class="icon">
+                  <i class="fab fa-facebook"></i>
+                </span> &emsp;
+                <span class="icon">
+                  <i class="fab fa-instagram"></i>
+                </span> &emsp;
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span> &emsp;
+                <span class="icon">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            
+          </nav>
+        </div>
+      </div>
+    </section>
+  </body>

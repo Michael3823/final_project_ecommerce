@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   
   resources :webhooks, only: [:create]
+  resources :order_products
 
   resources :cart, only: %i[create destroy]
   resources :products, only: %i[index show] do 

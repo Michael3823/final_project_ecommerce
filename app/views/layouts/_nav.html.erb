@@ -87,10 +87,12 @@
                           
                           
                         <% end %>
+                        <% if customer_signed_in? %>
                         <li>
                              <%= button_to "Buy Now", checkout_create_path, remote: true %>
                             
                           </li>
+                        <% end %>
                     </div>
                   </div>
                 </div>

@@ -8,6 +8,8 @@ class CheckoutController < ApplicationController
   end
     
       def success
+        name = params[:nameT]
+        address = params[:addressT]
         @currentCustomer = current_customer.id
         @total = 0
         cart.each do |add|
@@ -19,8 +21,11 @@ class CheckoutController < ApplicationController
         # create orderProducts that link to the new order id and the product id
         o = Order.create(total: (@realTotal * 1.13), tax: 1.13,
                          subtotal: @realTotal,
-                         customer_id: @currentCustomer )
-                         
+                         customer_id: @currentCustomer,
+                         name: name,
+                         address: address
+                         )
+
         cart.each do |product|
           o.order_products.create(
             quantity: 1,

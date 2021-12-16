@@ -29,14 +29,14 @@
                   <div class="control">
                     <%= form_with(url: checkout_success_path, method: :get, local: true ) do %>
              
-                    <%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: 'Enter Name') %> 
+                    <%= text_field_tag(:nameT, nil, class: "input is-rounded", placeholder: 'Enter Name') %> 
                     
                   </div>
                 </div>
 
                 <div class="field">
                   <div class="control">
-                    <%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: 'Enter Address') %>
+                    <%= text_field_tag(:addressT, nil, class: "input is-rounded", placeholder: 'Enter Address') %>
                   </div>
                 </div>
                 <%= submit_tag("Buy Now", class: "button is-block is-primary is-fullwidth is-medium") %><% end %>

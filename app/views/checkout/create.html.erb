@@ -27,7 +27,7 @@
               <form>
                 <div class="field">
                   <div class="control">
-                    <%= form_with(url: search_products_path, method: :get, local: true ) do %>
+                    <%= form_with(url: checkout_success_path, method: :get, local: true ) do %>
              
                     <%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: 'Enter Name') %> 
                     
@@ -39,7 +39,7 @@
                     <%= text_field_tag(:keywords, nil, class: "input is-rounded", placeholder: 'Enter Address') %>
                   </div>
                 </div>
-                <%= submit_tag("Search", class: "button is-block is-primary is-fullwidth is-medium") %><% end %>
+                <%= submit_tag("Buy Now", class: "button is-block is-primary is-fullwidth is-medium") %><% end %>
                 
                 
               </form>

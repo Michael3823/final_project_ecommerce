@@ -10,7 +10,7 @@ class CheckoutController < ApplicationController
       def success
         name = params[:nameT]
         address = params[:addressT]
-        @currentCustomer = current_customer.id
+        c = Customer.find(current_customer.id)
         @total = 0
         cart.each do |add|
           @total += add.price
@@ -19,20 +19,18 @@ class CheckoutController < ApplicationController
         #create an order and grab the id, also link to the loged in user id (also taxes here)
         # loop through the session
         # create orderProducts that link to the new order id and the product id
-        o = Order.create(total: (@realTotal * 1.13), tax: 1.13,
+        o = c.orders.create(total: (@realTotal * 1.13), tax: 1.13,
                          subtotal: @realTotal,
-                         customer_id: @currentCustomer,
                          name: name,
                          address: address
                          )
 
         cart.each do |product|
-          o.order_products.create(
+          product.order_products.create(
             quantity: 1,
             unit_price: product.price,
             total: product.price,
-            product_id: product.id
-
+            order: o
           )
         end
 

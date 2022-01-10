@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :category
+  belongs_to :customer
   validates :tax,:total, presence:true
   has_many :order_products
   has_many :products, through: :order_products

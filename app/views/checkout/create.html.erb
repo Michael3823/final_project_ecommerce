@@ -24,25 +24,24 @@
             <div class="column right has-text-centered">
               <h1 class="title is-4">Submit Your order</h1>
               <p class="description">please add your Name and your address</p>
-              <form>
+              
+              <%= form_with(url: checkout_success_path, method: :post, local: true ) do %>
                 <div class="field">
                   <div class="control">
-                    <%= form_with(url: checkout_success_path, method: :get, local: true ) do %>
-             
-                    <%= text_field_tag(:nameT, nil, class: "input is-rounded", placeholder: 'Enter Name') %> 
-                    
+                      <%= text_field_tag(:nameT, nil, class: "input is-rounded", placeholder: 'Enter Name') %> 
+                      
+                    </div>
                   </div>
-                </div>
 
-                <div class="field">
-                  <div class="control">
-                    <%= text_field_tag(:addressT, nil, class: "input is-rounded", placeholder: 'Enter Address') %>
+                  <div class="field">
+                    <div class="control">
+                      <%= text_field_tag(:addressT, nil, class: "input is-rounded", placeholder: 'Enter Address') %>
+                    </div>
                   </div>
-                </div>
-                <%= submit_tag("Buy Now", class: "button is-block is-primary is-fullwidth is-medium") %><% end %>
+                  <%= submit_tag("Buy Now", class: "button is-block is-primary is-fullwidth is-medium") %>
+                <% end %>
                 
                 
-              </form>
             </div>
           </div>
         </div>
